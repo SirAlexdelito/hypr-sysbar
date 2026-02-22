@@ -1,0 +1,22 @@
+.big-label{
+  font-size: 18px;
+  text-shadow:
+        0.2px 0 currentColor,
+       -0.2px 0 currentColor,
+        0 0.2px currentColor,
+        0 -0.2px currentColor;
+}
+
+.device-box:hover label{
+    color: deepskyblue; /* el color que quieras */
+
+}
+
+.device-icon{
+  font-size: 32px;
+  color: deepskyblue;
+}
+
+.blueetooth-name-label{
+    font-size: 16px;
+}

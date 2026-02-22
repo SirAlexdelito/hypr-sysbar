@@ -1,0 +1,58 @@
+.volume-widget{
+    background-color: rgba(255,255,255,0.06);
+    font-size: 16px;
+    font-family: 'Symbols Nerd Font';
+}
+
+.volume-slider{
+    min-width: 200px;
+}
+
+.volume-button-icon{
+    background-color: transparent;
+}
+
+.volume-text{
+    font-family: 'CozetteVector Nerd Font', 'monospace';
+    font-size: 18px;
+}
+
+.volume-button,
+.volume-button:hover,
+.volume-button:active,
+.volume-button:checked,
+.volume-button:focus {
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+  min-height: 0;
+}
+
+.device-button{
+    background-color: transparent;
+}
+
+.volume-slider-box,
+.devices-box{
+    background-color: #1F2336;
+    border-radius: 8px;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    padding-left: 1rem;
+
+}
+
+.volume-slider-box{
+    padding-right: 20px;
+}
+
+.speaker-label-selected{
+    color: #FF5555;
+}
+
+.volume-title-label{
+    padding-bottom: 1rem;
+}

@@ -1,0 +1,78 @@
+.workspace-button {
+  padding: 0.25rem 1rem; 
+  margin: 0; /* quitamos los márgenes */
+  background-color: rgba(31, 33, 48, 0.8); /* fondo #1F2130 con 80% opacidad */
+  border-radius: 8px;
+  border: none;
+  color: white;
+  font-size: 16px; 
+  transition: all 0.25s ease;
+}
+
+.workspace-button.focused {
+  background-color: rgba(31, 33, 48, 0.8); /* fondo #1F2130 con 80% opacidad */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  border-top: 0.1em solid transparent;
+  border-bottom: 0.15em solid red;
+  transition: 0ms;
+}
+
+.workspace-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+  background-color: rgba(50, 50, 70, 0.85); /* ligero aclarado en hover */
+}
+
+
+.workspace-name {
+  margin-right: 0px; /* espacio entre número y primer icono */
+  font-weight: bold;
+  line-height: 1; /* evita que el texto descienda */
+}
+
+.workspace-icon {
+  font-family: 'Symbols Nerd Font';
+  font-size: 18px;
+  line-height: 1;
+  margin-right: 5px;
+  margin-left: 5px;
+  color: #ddd; /* iconos normales */
+  transition: color 0.2s ease;
+}
+
+.workspace-icon.empty {
+  color: #666; /* sin ventana */
+}
+
+.workspace-separator {
+  margin-right: -0px;
+  background-color: rgba(255,255,255,0.3); 
+}
+
+/* Base */
+.workspace-button.special {
+  padding: 0.25rem 0.6rem;
+  background-color: #1C1E2E;
+  border-radius: 8px;
+  border: none;
+}
+
+/* Inactivo */
+.workspace-button.special.inactive {
+  opacity: 0.5;
+}
+
+/* Activo */
+.workspace-button.special.active {
+  opacity: 1;
+  border-bottom: 0.15em solid #e06c75;
+}
+
+/* Hover */
+.workspace-button.special:hover {
+  background-color: rgba(31, 33, 48, 1);
+}
+
+.special-workspace-widget{
+  border-radius: 8px;
+}

@@ -1,0 +1,88 @@
+@use "widget/widgets/workspaces/workspaces";
+@use "widget/widgets/notifications/notifications";
+@use "widget/widgets/volume/volume";
+@use "widget/widgets/bluetooth/bluetooth";
+@use "widget/widgets/systray/systray";
+@use "widget/widgets/sysmenu/sysmenu";
+@use "widget/widgets/datetime/datetime";
+
+.bar {
+  background-color: rgba(31, 33, 48, 0.8); /* fondo #1F2130 con 80% opacidad */
+}
+
+.start-widget {
+  border-radius: 0px;
+  background-color:transparent; /* fondo #1F2130 con 80% opacidad */
+  .label{
+    margin-left:15px
+  }
+}
+
+.inner-widget {
+  margin-left: 10px;
+  background-color:transparent; /* fondo #1F2130 con 80% opacidad */
+}
+
+.end-widget {
+  margin-right: 15px;
+  background-color:transparent; /* fondo #1F2130 con 80% opacidad */
+}
+
+.popover-panel {
+    min-width: 250px;
+    min-height: 200px;
+    padding: 15px;
+    background-color: #10101C;
+    border-radius: 8px;
+    box-shadow: inset 0 0 0 0.2rem #313244;
+}
+
+
+
+.popover,
+.popover > * {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
+.popover .background,
+.popover .popover-background,
+.popover frame,
+.popover border {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  border-radius: 14px;
+}
+
+.popover {
+  opacity: 0;
+}
+
+.popover.visible {
+    opacity: 1;
+}   
+
+
+.popover.arrow {
+    opacity: 0;
+}
+
+.title-label{
+    font-family: 'Symbols Nerd Font';
+    font-size: 18px;
+}
+.sub-label{
+    font-family: 'Symbols Nerd Font';
+    font-size: 11px;
+    padding-bottom: 1rem;
+    padding: 0px;
+    color: gray;
+}
+
+.lateral-panel{
+  background-color: rgba(31, 33, 48, 0.8); /* fondo #1F2130 con 80% opacidad */
+}
