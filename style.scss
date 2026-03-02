@@ -3,8 +3,8 @@
 @use "widget/widgets/volume/volume";
 @use "widget/widgets/bluetooth/bluetooth";
 @use "widget/widgets/systray/systray";
-@use "widget/widgets/sysmenu/sysmenu";
 @use "widget/widgets/datetime/datetime";
+@use "widget/widgets/sysoverlay/sysoverlay";
 
 .bar {
   background-color: rgba(31, 33, 48, 0.8); /* fondo #1F2130 con 80% opacidad */

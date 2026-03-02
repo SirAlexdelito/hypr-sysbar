@@ -10,6 +10,8 @@ import { ClipboardWidget } from "./widgets/clipboard/ClipboardWidget";
 import { SysTrayWidget } from "./widgets/systray/SystrayWidget";
 import { SysmenuWidget, SysmenuWidget2 } from "./widgets/sysmenu/SysmenuWidget";
 import { DatetimeWidget } from "./widgets/datetime/DatetimeWidget";
+import { SysOverlayButton } from "./widgets/sysoverlay/SysOverlay";
+import { PowerButtonsButton } from "./widgets/powerbuttons/PowerButtons";
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
   const time = createPoll("", 1000, "date");
@@ -31,7 +33,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
 
         {/* Workspaces normales */}
         <box $type="start">
-          <SysmenuWidget/>
+          <PowerButtonsButton/>
           <WorkspacesWidget />
         </box>
 

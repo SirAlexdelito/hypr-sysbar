@@ -3,6 +3,7 @@ import style from "./style.scss"
 import Bar from "./widget/Bar"
 import { NotificationsPanel } from "./widget/widgets/notifications/NotificationsPanel"
 import { SysmenuWidget2 } from "./widget/widgets/sysmenu/SysmenuWidget"
+import { SysOverlay, SysOverlayButton } from "./widget/widgets/sysoverlay/SysOverlay"
 
 app.start({
   css: style,
@@ -13,6 +14,6 @@ app.start({
     // Crear nuevas ventanas
     app.get_monitors().map(Bar)
     app.get_monitors().map(NotificationsPanel)
-    app.get_monitors().map(SysmenuWidget2)
+    app.get_monitors().map(SysOverlay)
   },
 })
