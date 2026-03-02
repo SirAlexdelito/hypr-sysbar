@@ -64,7 +64,6 @@ const b1 = (): JSX.Element => {
                         />
                     </box>
                 </box>
-                <Gtk.Separator class={"separator"}/>
             </box>
         </revealer>
         

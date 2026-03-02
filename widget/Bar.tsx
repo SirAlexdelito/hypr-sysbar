@@ -34,6 +34,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
         {/* Workspaces normales */}
         <box $type="start">
           <PowerButtonsButton/>
+          <Gtk.Separator class={"separator"}/>
           <WorkspacesWidget />
         </box>
 
@@ -44,10 +45,15 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
 
         {/* Botón de notificaciones */}
         <box $type="end">
+          <Gtk.Separator class={"separator"}/>
           <ClipboardWidget/>
+          <Gtk.Separator class={"separator"}/>
           <VolumePanel />
+          <Gtk.Separator class={"separator"}/>
           <BluetoothWidget/>
+          <Gtk.Separator class={"separator"}/>
           <SysTrayWidget/>
+          <Gtk.Separator class={"separator"}/>
           <NotificationsWidget />
         </box>
 
