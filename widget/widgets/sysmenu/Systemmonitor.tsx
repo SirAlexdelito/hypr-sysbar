@@ -194,11 +194,6 @@ export const SystemMonitorWidget = (): JSX.Element => {
     lastTs = now;
     pulseTime += dt;
 
-    // Lerp suavizado
-    for (let i = 0; i < 4; i++) {
-      smoothValues[i] += (targetValues[i] - smoothValues[i]) * Math.min(1, dt * 3);
-    }
-
     const pulse = heartbeat(pulseTime);
 
     const cols = 2, rows = 2;
@@ -210,7 +205,7 @@ export const SystemMonitorWidget = (): JSX.Element => {
       const row = Math.floor(i / cols);
       const cx = cellW * col + cellW / 2;
       const cy = cellH * row + cellH / 2;
-      const val = smoothValues[i];
+      const val = targetValues[i];
       const maxR = Math.min(cellW, cellH) * 0.40;
       const { r, g, b } = hexToRgb(orbs[i].color);
 
