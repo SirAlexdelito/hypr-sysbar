@@ -35,7 +35,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
         <box $type="start">
           <PowerButtonsButton/>
           <Gtk.Separator class={"separator"}/>
-          <WorkspacesWidget />
+          {WorkspacesWidget(gdkmonitor.get_connector() ?? "")}
         </box>
 
         {/* Workspaces especiales */}

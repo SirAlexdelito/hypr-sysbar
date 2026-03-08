@@ -6,7 +6,7 @@ import { getClientIcon } from "./WorkspaceUtils"
 
 const hyprland = AstalHyprland.get_default();
 
-export const WorkspacesWidget = (): JSX.Element => {
+export const WorkspacesWidget = (monitorName: string): JSX.Element => {
   // Bindings reactivos
   const workspaces = createBinding(hyprland, "workspaces");
   const clients = createBinding(hyprland, "clients");
@@ -21,7 +21,7 @@ export const WorkspacesWidget = (): JSX.Element => {
     if (!wsList) return [];
 
     return wsList
-      .filter(ws => !ws.name.startsWith("special") && ws.clients.length>0) // excluimos magics y ws vacíos
+      .filter(ws =>monitorName === ws.monitor?.name && !ws.name?.startsWith("special") && ws.clients.length>0) // excluimos magics y ws vacíos
       .map(ws => {
         const wsClients = clientList.filter(
           c => c.workspace?.name === ws.name
