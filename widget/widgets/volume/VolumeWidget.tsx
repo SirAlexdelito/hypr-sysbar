@@ -3,6 +3,7 @@ import { Gtk } from "ags/gtk4";
 import AstalWp from "gi://AstalWp?version=0.1";
 import { icon, muted, toggleMute, addVol } from "./VolumeUtils";
 import { addRightClickHandle, addScrollHandle } from "./../../shared/EventHandlingUtils";
+import { Variable } from "astal";
 
 const wp = AstalWp.get_default() as AstalWp.Wp;
 const audioService = wp.audio;
@@ -26,6 +27,7 @@ const volumeIcon = createComputed(() => {
 
 export const VolumePanel = (): JSX.Element => {
   let popover: Gtk.Popover | undefined;
+  const popoverRef = new Variable<Gtk.Popover | undefined>(undefined);
 
   return (
     <button 
@@ -51,21 +53,21 @@ export const VolumePanel = (): JSX.Element => {
         />
         <popover
             class="popover"
-            $={(p) => (popover = p)}
+            $={(p) => { popover = p; popoverRef.set(p); }}
             hasArrow={false}
             autohide={true}
             onMap={(p) => p.add_css_class("visible")}
             onUnmap={(p) => p.remove_css_class("visible")}
         >
-          {VolumePanelBox()}
+          {VolumePanelBox(popoverRef)}
         </popover>
       </box>
     </button>
   );
 };
 
-const VolumePanelBox = (): JSX.Element => {
-  // Reactivo: obtiene la lista de altavoces
+// En VolumePanelBox, pasa el popover como parámetro
+const VolumePanelBox = (popoverRef: Variable<Gtk.Popover | undefined>): JSX.Element => {  // Reactivo: obtiene la lista de altavoces
   const speakers = createBinding(audioService, "speakers");
 
   return (
@@ -125,14 +127,14 @@ const VolumePanelBox = (): JSX.Element => {
             <button 
               class="device-button" 
               halign={Gtk.Align.START}
-              onClicked={(self) => {
-                  (self.get_parent()?.get_parent()?.get_parent() as Gtk.Popover).visible=!(self.get_parent()?.get_parent()?.get_parent() as Gtk.Popover).visible;
-                  device.set_is_default(true);
+              onClicked={() => {
+                //popoverRef.get()?.set_visible(false);
+                device.set_is_default(true);
               }}
             >
               <label 
                 label={device.description ?? device.name}
-                class={"speaker-label-" + (device.get_is_default() ? "selected" : "no-selected")}
+                class={createBinding(device, "isDefault").as(v => "speaker-label-" + (v ? "selected" : "no-selected"))}
               />
             </button>
           )}
