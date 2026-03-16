@@ -3,7 +3,6 @@ import style from "./style.scss"
 import Bar from "./widget/Bar"
 import { NotificationsPanel } from "./widget/widgets/notifications/NotificationsPanel"
 import { SysmenuWidget2 } from "./widget/widgets/sysmenu/SysmenuWidget"
-import { SysOverlay, SysOverlayButton } from "./widget/widgets/sysoverlay/SysOverlay"
 import AstalHyprland from "gi://AstalHyprland?version=0.1"
 import GLib from "gi://GLib?version=2.0"
 
@@ -16,7 +15,6 @@ app.start({
       app.get_windows().forEach(w => w.destroy());
       app.get_monitors().map(Bar);
       app.get_monitors().map(NotificationsPanel);
-      app.get_monitors().map(SysOverlay);
     };
 
     createWindows();
