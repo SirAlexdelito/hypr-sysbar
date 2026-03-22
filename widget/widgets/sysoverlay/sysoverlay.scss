@@ -1,19 +1,59 @@
-.sys-overlay{
-  background-color: rgba(31, 33, 48, 0.9); /* fondo #1F2130 con 80% opacidad */
+.popover-panel {
+  padding: 16px;
 }
 
-.button.power {
-    font-size: 20px;
-    background-color: transparent;
-    border-radius: 0px;
-    font-family: 'Symbols Nerd Font';
+.weather-box {
+  padding-top: 0px;
 }
 
-.sysmenu-widget {
-    font-size: 18px;
-    color: cyan;
+.weather-icon {
+  font-family: "Symbols Nerd Font";
+  font-size: 48px;
+  color: #7dcfff;
 }
 
-.separator{
-    margin: 10px;
+.weather-temp-main {
+  font-size: 28px;
+  font-weight: bold;
+  color: #f0f0f0;
+}
+
+.weather-temp-min {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.weather-desc {
+  font-size: 16px;
+  color: #f0f0f0;
+  font-weight: bold;
+}
+
+.weather-extra {
+  font-family: "Symbols Nerd Font";
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.calendar {
+  background-color: transparent;
+  font-family: "CozetteVector Nerd Font", monospace;
+  min-width: 520px;
+}
+
+.forecast-day {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  min-width: 32px;
+}
+
+.forecast-icon {
+  font-family: "Symbols Nerd Font";
+  font-size: 18px;
+  color: #7dcfff;
+}
+
+.forecast-temp {
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
 }

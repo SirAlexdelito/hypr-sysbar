@@ -3,7 +3,7 @@ import { Gtk } from "ags/gtk4";
 import AstalWp from "gi://AstalWp?version=0.1";
 import { icon, muted, toggleMute, addVol } from "./VolumeUtils";
 import { addRightClickHandle, addScrollHandle } from "./../../shared/EventHandlingUtils";
-import { Variable } from "astal";
+import { Variable } from "/usr/share/astal/gjs/index";
 
 const wp = AstalWp.get_default() as AstalWp.Wp;
 const audioService = wp.audio;

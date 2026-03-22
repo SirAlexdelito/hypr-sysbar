@@ -10,12 +10,21 @@ export interface WeatherData {
   stateSky: string;  // descripción del estado del cielo
   stateSkyCode: string; // código numérico del estado
   rainProbability: number;
+  humidity: number;
+  windSpeed: number;
+  uvMax: number;
+  forecast: Array<{
+    date: string;
+    tempMax: number;
+    tempMin: number;
+    skyCode: string;
+  }>;
 }
 
 // ─── Icon map ─────────────────────────────────────────────────────────────────
 // Códigos AEMET: https://www.aemet.es/es/eltiempo/prediccion/municipios/ayudas/simbolos
 
-const skyIconMap: Record<string, string> = {
+export const skyIconMap: Record<string, string> = {
   "11": "󰖙",  // Despejado
   "12": "󰖕",  // Poco nuboso
   "13": "󰖕",  // Intervalos nubosos
@@ -120,7 +129,6 @@ export class AemetService {
       // Parsear respuesta
       const prediccion = json[0]?.prediccion?.dia?.[0];
       if (!prediccion) throw new Error("No prediction data");
-console.log("CIELO RAW:", JSON.stringify(prediccion.estadoCielo));
       const tempMax = prediccion.temperatura?.maxima ?? 0;
       const tempMin = prediccion.temperatura?.minima ?? 0;
 
@@ -139,7 +147,33 @@ console.log("CIELO RAW:", JSON.stringify(prediccion.estadoCielo));
         ? Math.max(...probPrec.map((p: any) => parseInt(p.value) || 0))
         : 0;
 
-      this._data = { tempMax, tempMin, stateSky, stateSkyCode, rainProbability };
+      const humedad = prediccion.humedadRelativa?.maxima ?? 0;
+      const viento = prediccion.viento?.[0]?.velocidad ?? 0;
+      const uvMax = prediccion.uvMax ?? 0;
+
+      const dias = json[0]?.prediccion?.dia ?? [];
+      const forecast = dias.slice(1, 4).map((dia: any) => {
+        const cielo = dia.estadoCielo;
+        const cieloVal = Array.isArray(cielo)
+          ? (cielo.find((c: any) => c.value !== "") ?? cielo[0])
+          : cielo;
+        return {
+          date: dia.fecha,
+          tempMax: dia.temperatura?.maxima ?? 0,
+          tempMin: dia.temperatura?.minima ?? 0,
+          skyCode: cieloVal?.value ?? "11",
+        };
+      });
+
+      this._data = { 
+        tempMax, tempMin, stateSky, stateSkyCode, 
+        rainProbability,
+        humidity: humedad,
+        windSpeed: viento,
+        uvMax,
+        forecast
+      };
+
       this._error = null;
     } catch (e: any) {
       this._error = e?.message ?? "Unknown error";
@@ -169,6 +203,6 @@ console.log("CIELO RAW:", JSON.stringify(prediccion.estadoCielo));
 // ─── Instancia singleton ──────────────────────────────────────────────────────
 
 export const weatherService = new AemetService(
-GLib.getenv("AEMET_API_KEY") ?? "",
+GLib.getenv("AEMET_APIKEY") ?? "",
 GLib.getenv("AEMET_PCCODE") ?? ""
 );

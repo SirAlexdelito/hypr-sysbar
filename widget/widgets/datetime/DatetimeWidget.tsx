@@ -1,6 +1,7 @@
 import { Gtk } from "ags/gtk4";
 import { createPoll } from "ags/time";
 import { addLeftClickHandle } from "./../../shared/EventHandlingUtils";
+import { SysOverlay } from "../sysoverlay/SysOverlay";
 
 const weekMap = new Map<number, string>();
 weekMap.set(1,"Lun");
@@ -31,6 +32,23 @@ export const DatetimeWidget = (): JSX.Element => {
         <box
             orientation={Gtk.Orientation.HORIZONTAL}
             spacing={10}
+            $={(self) => addLeftClickHandle(self, () => {
+                if (popover) popover.visible = !popover.visible;
+            })}
+        >
+            <label label={datetime} class="time-label"/>
+            <label label={calendar} class="time-label"/>
+            {SysOverlay((p) => (popover = p))}
+        </box>
+    );
+};
+
+export const DatetimeWidget2 = (): JSX.Element => {
+    let popover: Gtk.Popover | undefined;
+    return (
+        <box
+            orientation={Gtk.Orientation.HORIZONTAL}
+            spacing={10}
             $={(self)=>addLeftClickHandle(self, () => {if (popover) popover.visible = !popover.visible;})}
         >
             <label label={datetime} class={"time-label"}/>
@@ -46,7 +64,9 @@ export const DatetimeWidget = (): JSX.Element => {
                     <box
                         class={"popover-panel"}
                     >
+                     
                         {<Gtk.Calendar
+                            visible={false}    
                             class={"calendar"}
                             onDaySelected={(cal)=> {
                                 if(cal.get_day_is_marked(cal.get_day()))
