@@ -5,9 +5,9 @@ import { NotificationsPanel } from "./widget/widgets/notifications/Notifications
 import AstalHyprland from "gi://AstalHyprland?version=0.1"
 import GLib from "gi://GLib?version=2.0"
 import { weatherService } from "./widget/services/WeatherService";
+import { cavaService } from "widget/services/CavaService"
 
 const hyprland = AstalHyprland.get_default();
-
 app.start({
   css: style,
   main() {
@@ -28,7 +28,9 @@ app.start({
         app.quit();
     });
     weatherService.onUpdate((data, error) => {
-        console.log("WEATHER UPDATE:", data, error);
     });
-    weatherService.startPolling(30);  },
+    weatherService.startPolling(30);  
+    cavaService.start(); // ← tiene que estar aquí dentro
+  },
+    
 });

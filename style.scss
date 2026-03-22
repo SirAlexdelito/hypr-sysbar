@@ -5,9 +5,10 @@
 @use "widget/widgets/systray/systray";
 @use "widget/widgets/datetime/datetime";
 @use "widget/widgets/sysoverlay/sysoverlay";
+@use "widget/widgets/powerbuttons/powerbuttons";
 
 .bar {
-  background-color: rgba(31, 33, 48, 0.8); /* fondo #1F2130 con 80% opacidad */
+  background-color: #1d202180; /* fondo #1F2130 con 80% opacidad */
 }
 
 .start-widget {
@@ -32,9 +33,10 @@
     min-width: 250px;
     min-height: 200px;
     padding: 15px;
-    background-color: #10101C;
+    background-color: #1d2021;
     border-radius: 8px;
-    box-shadow: inset 0 0 0 0.2rem #313244;
+    box-shadow: inset 0 0 0 0.2rem #cc241d;
+    margin-top: -8px;
 }
 
 
