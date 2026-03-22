@@ -5,6 +5,7 @@
 @use "widget/widgets/systray/systray";
 @use "widget/widgets/datetime/datetime";
 @use "widget/widgets/sysoverlay/sysoverlay";
+@use "widget/widgets/powerbuttons/powerbuttons";
 
 .bar {
   background-color: rgba(31, 33, 48, 0.8); /* fondo #1F2130 con 80% opacidad */
