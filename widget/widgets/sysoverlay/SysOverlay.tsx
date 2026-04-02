@@ -1,6 +1,6 @@
 import { Gtk } from "ags/gtk4";
 import { WeatherPanel } from "./WeatherPanel";
-import { EqualizerWidget } from "./MediaPlayer";
+import { MediaPlayer } from "./MediaPlayer";
 
 export const SysOverlay = (onRef: (p: Gtk.Popover) => void): Gtk.Popover => {
   const stack = new Gtk.Stack();
@@ -12,7 +12,7 @@ export const SysOverlay = (onRef: (p: Gtk.Popover) => void): Gtk.Popover => {
   </box>) as Gtk.Widget;
 
   const mediaPage = (<box name="media">
-    {EqualizerWidget()}
+    {MediaPlayer()}
   </box>) as Gtk.Widget;
 
   stack.add_titled(timePage, "time", "Tiempo");
@@ -28,7 +28,11 @@ export const SysOverlay = (onRef: (p: Gtk.Popover) => void): Gtk.Popover => {
       onUnmap={(p) => p.remove_css_class("visible")}
       halign={Gtk.Align.CENTER}
     >
-      <box class="popover-panel" orientation={Gtk.Orientation.VERTICAL} spacing={12}>
+      <box class="popover-panel" 
+        orientation={Gtk.Orientation.VERTICAL} 
+        spacing={12} 
+        hexpand
+      >
         {switcher}
         {stack}
       </box>

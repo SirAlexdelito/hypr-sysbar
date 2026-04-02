@@ -88,3 +88,82 @@ calendar .today {
 calendar .other-month {
   color: rgba(255, 255, 255, 0.2);
 }
+
+
+.media-player {
+  padding: 4px;
+}
+
+.album-art {
+  min-width: 100px;
+  min-height: 100px;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+}
+
+.media-title {
+  font-family: "CozetteVector Nerd Font", monospace;
+  font-size: 15px;
+  font-weight: bold;
+  color: #f0f0f0;
+}
+
+.media-artist {
+  font-family: "CozetteVector Nerd Font", monospace;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.media-controls {
+  margin-top: 4px;
+}
+
+.media-btn {
+  background-color: transparent;
+  border-radius: 50%;
+  padding: 4px;
+  min-width: 32px;
+  min-height: 32px;
+}
+
+.media-btn:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.media-btn-play {
+  background-color: rgba(125, 207, 255, 0.15);
+}
+
+.media-btn-play:hover {
+  background-color: rgba(125, 207, 255, 0.25);
+}
+
+.media-btn-icon {
+  font-family: "Symbols Nerd Font";
+  font-size: 18px;
+  color: #f0f0f0;
+}
+
+.media-progress {
+  min-width: 400px;
+}
+
+.media-volume {
+  padding: 0 4px;
+}
+
+.media-volume-icon {
+  font-family: "Symbols Nerd Font";
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.media-volume-slider {
+  min-height: 120px;
+}
+
+.equalizer {
+  min-width: 400px;
+  min-height: 60px;
+}

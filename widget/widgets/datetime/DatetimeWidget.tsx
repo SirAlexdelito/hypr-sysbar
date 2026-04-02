@@ -28,9 +28,10 @@ const calendar = createPoll("", 60000, () => {
 
 export const DatetimeWidget = (): JSX.Element => {
     let popover: Gtk.Popover | undefined;
-    return (
+    return ( 
         <box
             orientation={Gtk.Orientation.HORIZONTAL}
+            halign={Gtk.Align.CENTER}
             spacing={10}
             $={(self) => addLeftClickHandle(self, () => {
                 if (popover) popover.visible = !popover.visible;
