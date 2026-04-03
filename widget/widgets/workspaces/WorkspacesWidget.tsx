@@ -42,31 +42,21 @@ export const WorkspacesWidget = (monitorName: string): JSX.Element => {
           hasClients: wsClients.length > 0,
           isFocused: focusedWs?.name === ws.name,
         };
-      }).sort((a, b) => a.id - b.id);
+      }).sort((a, b) => b.id - a.id);
     });
 
   return (
     <box orientation={Gtk.Orientation.HORIZONTAL} spacing={8} class={"inner-widget"}>
       <For each={workspacesComputed}>
         {(item) => (
-          <button
-            class={`workspace-button ${item.isFocused ? "focused" : ""}`}
-            onClicked={() => hyprland.dispatch("workspace", item.name)}
-          >
-            <box orientation={Gtk.Orientation.HORIZONTAL} spacing={6} class="workspace-content">
-              <label class="workspace-name" label={item.name} />
+<button
+  class={`workspace-button ${item.isFocused ? "focused" : ""}`}
+  onClicked={() => hyprland.dispatch("workspace", item.name)}
+  halign={Gtk.Align.CENTER}
+  valign={Gtk.Align.CENTER}
+>
 
-              <box class="workspace-separator" />
-
-              {item.icons.length > 0 && (
-                <box orientation={Gtk.Orientation.HORIZONTAL} spacing={4} class="workspace-icons">
-                  {item.icons.map((icon) => (
-                    <label class="workspace-icon" label={icon} />
-                  ))}
-                </box>
-              )}
-            </box>
-          </button>
+</button>
         )}
       </For>
     </box>
