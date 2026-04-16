@@ -42,7 +42,7 @@ export const WorkspacesWidget = (monitorName: string): JSX.Element => {
           hasClients: wsClients.length > 0,
           isFocused: focusedWs?.name === ws.name,
         };
-      }).sort((a, b) => a.id - b.id);
+      }).sort((a, b) => b.id - a.id);
     });
 
   return (

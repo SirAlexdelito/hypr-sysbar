@@ -20,12 +20,16 @@ export const clearNotifications = async (
     panel?.set_visible(true)
 };
 
-export const getNotificationIcon = (n: AstalNotifd.Notification): Gio.Icon => {
-    if(n.body.includes("whatsapp")){
-        return Gio.Icon.new_for_string("/home/alex/.icons/whatsapp.svg");
-    }else{
-        return Gio.Icon.new_for_string(n.appIcon ? n.appIcon : n.appName.toLowerCase());
+export const getNotificationIcon = (n:any) => {
+    if (n.body?.includes("whatsapp")) {
+        return Gio.Icon.new_for_string(
+            "/home/alex/.icons/whatsapp.svg"
+        );
     }
+
+    return Gio.Icon.new_for_string(
+        n.appIcon || n.appName || "dialog-information"
+    );
 };
 
 export const getTrashButton = (): Gio.Icon => Gio.Icon.new_for_string("user-trash-symbolic");
